@@ -1,0 +1,28 @@
+﻿//进入本地工程目录
+.openshift/cron/minutely
+//新建自动重启脚本
+restart.sh
+
+#复制这段代码到restart.sh
+#!/bin/bash
+export TZ='Asia/Shanghai'
+curl -I ${OPENSHIFT_APP_DNS} 2> /dev/null | head -1 | grep -q '200\|301\|302'
+s=$?
+if [ $s != 0 ];
+    then
+        echo "`date +"%Y-%m-%d %H:%M:%S"` down" >> ${OPENSHIFT_DATA_DIR}web_error.log
+        let t=`date +"%M"`%5
+        if [ $t -eq 0 ];
+            then
+                echo "`date +"%Y-%m-%d %H:%M:%S"` restarting..." >> ${OPENSHIFT_DATA_DIR}web_error.log
+                /usr/bin/gear stop 2>&1 /dev/null
+                /usr/bin/gear start 2>&1 /dev/null
+                echo "`date +"%Y-%m-%d %H:%M:%S"` restarted!!!" >> ${OPENSHIFT_DATA_DIR}web_error.log
+        fi
+else
+    echo "`date +"%Y-%m-%d %H:%M:%S"` is ok" > ${OPENSHIFT_DATA_DIR}web_run.log
+fi
+#复制这段代码到restart.sh
+
+//使用ssh赋予脚本711权限
+chmod 711 restart.sh

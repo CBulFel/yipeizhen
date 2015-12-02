@@ -1,0 +1,17 @@
+1.解决openshift时区问题
+在本地项目环境找到 .openshift/action_hooks/
+新建pre_start_jbossews.txt，文本文件,输入 export JAVA_OPTS="-Duser.timezone=Asia/Shanghai -Dfile.encoding=utf-8 -Duser.language=zh"，然后把后缀txt去掉。
+然后git push到云端
+
+2.解决openshift mysql乱码问题
+
+使用ssh连接openshift，进入目录mysql/conf，使用vim编辑my.cnf
+在[mysqld]下添加以下两配置项
+default-character-set=utf8
+init_connect='SET NAMES utf8'
+
+重启项目，然后用命令行删除原数据库(可以用navicat连接openshift的Mysql)，并且新建一个指定编码的数据库
+drop database db_name;
+create database da_name default character set utf8;
+
+java程序的jdbc连接URL后面加?useUnicode=true&characterEncoding=utf8

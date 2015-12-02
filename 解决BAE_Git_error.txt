@@ -1,0 +1,27 @@
+解决BAE Git error: RPC failed; result=22, HTTP code = 411
+
+使用BAE Git时，需要对本地Git进行配置，不然会出现以下错误：
+
+Counting objects: 13073, done.
+
+Delta compression using up to 8 threads.
+
+Compressing objects: 100% (12182/12182), done.
+
+error: RPC failed; result=22, HTTP code = 411
+
+fatal: The remote end hung up unexpectedly
+
+Writing objects: 100% (13071/13071), 11.46 MiB | 5.10 MiB/s, done.
+
+Total 13071 (delta 2059), reused 0 (delta 0)
+
+fatal: The remote end hung up unexpectedly
+
+Everything up-to-date
+
+解决方法
+
+可以通过命令重新进行配置：
+
+$ git config –global http.postBuffer 52428800

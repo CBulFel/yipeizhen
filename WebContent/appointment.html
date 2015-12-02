@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
+<meta charset="UTF-8">
+<title>云康全程陪诊服务</title>
+<style type="text/css">
+.smart-green {
+margin-left:auto;
+margin-right:auto;
+max-width: 500px;
+background: #F8F8F8;
+padding: 30px 30px 20px 30px;
+font: 12px Arial, Helvetica, sans-serif;
+color: #666;
+border-radius: 5px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+}
+.smart-green h1 {
+font: 24px "Trebuchet MS", Arial, Helvetica, sans-serif;
+padding: 20px 0px 20px 0px;
+display: block;
+margin: -30px -30px 10px -30px;
+color: #FFF;
+background: #9DC45F;
+text-shadow: 1px 1px 1px #949494;
+border-radius: 5px 5px 0px 0px;
+-webkit-border-radius: 5px 5px 0px 0px;
+-moz-border-radius: 5px 5px 0px 0px;
+border-bottom:1px solid #89AF4C;
+}
+.smart-green h1>span {
+display: block;
+font-size: 11px;
+color: #FFF;
+}
+.smart-green label {
+display: block;
+margin: 0px 0px 5px;
+}
+.smart-green label>span {
+float: left;
+margin-top: 10px;
+color: #5E5E5E;
+}
+.smart-green input[type="text"], .smart-green input[type="email"], .smart-green textarea, .smart-green select {
+color: #555;
+height: 30px;
+line-height:15px;
+width: 95%;
+padding: 0px 0px 0px 10px;
+margin-top: 2px;
+border: 1px solid #E5E5E5;
+background: #FBFBFB;
+outline: 0;
+-webkit-box-shadow: inset 1px 1px 2px rgba(238, 238, 238, 0.2);
+box-shadow: inset 1px 1px 2px rgba(238, 238, 238, 0.2);
+font: normal 14px/14px Arial, Helvetica, sans-serif;
+}
+.smart-green textarea{
+height:100px;
+padding-top: 10px;
+}
+.smart-green select {
+background: url('down-arrow.png') no-repeat right, -moz-linear-gradient(top, #FBFBFB 0%, #E9E9E9 100%);
+background: url('down-arrow.png') no-repeat right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FBFBFB), color-stop(100%,#E9E9E9));
+appearance:none;
+-webkit-appearance:none;
+-moz-appearance: none;
+text-indent: 0.01px;
+text-overflow: '';
+width:100%;
+height:30px;
+}
+.smart-green input[type="submit"],.smart-green input[type="reset"]{
+background-color: #9DC45F;
+border-radius: 5px;
+-webkit-border-radius: 5px;
+-moz-border-border-radius: 5px;
+border: none;
+padding: 10px 25px 10px 25px;
+color: #FFF;
+text-shadow: 1px 1px 1px #949494;
+}
+.smart-green input[type="submit"],.smart-green input[type="reset"]{
+background-color:#80A24A;
+}
+</style>
+</head>
+<body>
+	<form action="/YKWX/CoreServlet" method="post" class="smart-green">
+	<h1 align="center" >预约陪诊</h1>
+	<input hidden="true" type="text" name="formsign" value="true"/>
+	<fieldset>
+	<legend>用户认证</legend>
+	穿测密钥：<input type="text" name="code" id="code"/>
+	<br/>
+	(1)密钥为6位的大写字母与数字的组合<br/>
+	(2)云康小伙伴请通过员工认证获取密钥<br/>
+	(3)其他用户请使用云康小伙伴分享给您的密钥<br/>
+	</fieldset><br/>
+	<fieldset>
+	<legend>就诊人信息</legend>
+	姓名：<input type="text" name="name"/>
+	<br/><br/>
+	性别：<input type="radio" name="sex" value="男"/>帅哥
+				<input type="radio" name="sex" value="女"/>美女
+	<br/><br/>
+	身份证号：<input type="text" name="id"/>
+	<br/><br/>
+	手机号码：<input type="text" name="tel"/>
+	<br/>
+	</fieldset>
+	<br/>
+	<fieldset>
+	<legend>预约陪诊信息</legend>
+	陪诊时间：
+	<br/>
+	<select name="timeofyear" style="width: 23%">
+		<option value="2015年">2015</option>
+		<option value="2016年">2016</option>
+	</select>
+	年
+	<select name="timeofmonth" style="width: 14%">
+		<option value="1月">1</option><option value="2月">2</option>
+		<option value="3月">3</option><option value="4月">4</option>
+		<option value="5月">5</option><option value="6月">6</option>
+		<option value="7月">7</option><option value="8月">8</option>
+		<option value="9月">9</option><option value="10月">10</option>
+		<option value="11月">11</option><option value="12月">12</option>
+	</select>
+	月
+	<select name="timeofday" style="width: 14%">
+		<option value="1日">1</option><option value="2日">2</option>
+		<option value="3日">3</option><option value="4日">4</option>
+		<option value="5日">5</option><option value="6日">6</option>
+		<option value="7日">7</option><option value="8日">8</option>
+		<option value="9日">9</option><option value="10日">10</option>
+		<option value="11日">11</option><option value="12日">12</option>
+		<option value="13日">13</option><option value="14日">14</option>
+		<option value="15日">15</option><option value="16日">16</option>
+		<option value="17日">17</option><option value="18日">18</option>
+		<option value="19日">19</option><option value="20日">20</option>
+		<option value="21日">21</option><option value="22日">22</option>
+		<option value="23日">23</option><option value="24日">24</option>
+		<option value="25日">25</option><option value="26日">26</option>
+		<option value="27日">27</option><option value="28日">28</option>
+		<option value="29日">29</option><option value="30日">30</option>
+		<option value="31日">31</option>
+	</select>
+	日
+	<select name="timeofampm" style="width: 22%">
+		<option value="上午">上午</option>
+		<option value="下午">下午</option>
+	</select>
+	<br/><br/>
+	门诊号/就诊号（选填）：<input type="text" name="patientno"/>
+	<br/><br/>
+	预约医院：
+	<select name="hospital">
+		<option value="中山大学中山眼科中心">中山大学中山眼科中心</option>
+		<option value="中山大学附属第一医院">中山大学附属第一医院</option>
+		<option value="广东省中医院">广东省中医院</option>
+		<option value="广东省中医院二沙岛分院">广东省中医院二沙岛分院</option>
+		<option value="广东省中医院芳村分院">广东省中医院芳村分院</option>
+		<option value="广东省人民医院">广东省人民医院</option>
+		<option value="广州中医药大学第一附属医院">广州中医药大学第一附属医院</option>
+	</select>
+	<br/><br/>
+	预约科室：<input type="text" name="department"/>
+	<br/><br/>
+	预约医生：<input type="text" name="doctor"/>
+	<br/><br/>
+	就诊疾病：<input type="text" name="disease"/>
+	</fieldset>
+	<br/>
+	<input type="submit" style="width: 30%;height:40px;margin-left: 20%" value="提交" onclick="return check(this.form)"/>
+	<input type="reset"  style="width: 30%;;height:40px;" value="重置"/>
+	</form>
+	
+<script>
+function check(form) {
+    if(form.code.value==''||form.code.value.length!=6) {
+        alert("请输入正确的6位穿测密钥!");
+        form.code.focus();
+        return false;
+   }
+    if(form.name.value=='') {
+          alert("请输入就诊人姓名!");
+          form.name.focus();
+          return false;
+     }
+    if(form.sex.value=='') {
+        alert("请选择就诊人性别!");
+        return false;
+   }
+    if(form.id.value==''||form.id.value.length!=18) {
+        alert("请输入正确的就诊人18位身份证号码!");
+        form.id.focus();
+        return false;
+   }
+    if(form.tel.value==''||form.tel.value.length!=11) {
+        alert("请输入正确的11位联系电话号码!");
+        form.tel.focus();
+        return false;
+   }
+    var now = new Date();
+    var temp = form.timeofyear.value.replace("年","/")+form.timeofmonth.value.replace("月","/")+form.timeofday.value.replace("日","")+" 00:00:00";
+    var choosedate = Date.parse(temp);
+    if(now>=choosedate){
+    	alert("请选择正确的日期，提前一天预约!");
+        return false;
+    }
+    if(form.department.value=='') {
+        alert("请输入预约科室!");
+        form.department.focus();
+        return false;
+   }
+    if(form.doctor.value=='') {
+        alert("请输入预约医生姓名!");
+        form.doctor.focus();
+        return false;
+   } 
+    if(form.disease.value=='') {
+        alert("请输入就诊疾病!");
+        form.disease.focus();
+        return false;
+   }
+   return true;
+}
+function GetRequest() {
+   var url = location.search; //获取url中"?"符后的字串
+   var theRequest = new Object();
+   if (url.indexOf("?") != -1) {
+      var str = url.substr(1);
+      strs = str.split("&");
+      for(var i = 0; i < strs.length; i ++) {
+         theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+      }
+   }
+   return theRequest;
+}
+var Request = new Object();
+Request = GetRequest();
+var code=Request['code'];
+document.getElementById("code").value=code;
+</script>
+	
+</body>
+</html>
